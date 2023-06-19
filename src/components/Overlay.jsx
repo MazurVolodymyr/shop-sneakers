@@ -1,4 +1,4 @@
-const Overlay = () => {
+const Overlay = (props) => {
     return (
         <div style={{display:'none'}} className="overlay">
             <div className="drawer">

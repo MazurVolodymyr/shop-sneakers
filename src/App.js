@@ -3,6 +3,15 @@ import './index.scss';
 import SneakersContain from './components/Sneakers-contain';
 import Header from './components/Header';
 import Overlay from './components/Overlay';
+
+const arr = [
+    { name:'Чоловічі кросівки Nike Blazer Mid Suede', price: '9999', imgURL: './images/body/1.svg', imgFavoriteClicked: './images/icons/heart-clicked.svg' },
+    { name:'Чоловічі кросівки Nike Air Max 270', price: '7999', imgURL: './images/body/2.svg' },
+    { name:'Чоловічі кросівки Nike Blazer Mid Suede', price: '4699', imgURL: './images/body/3.svg' },
+    { name:'Кросівки Puma X Aka Boku Future Rider', price: '11000' , imgURL: './images/body/4.svg'},
+]
+    
+
 const App = () => {
   return (
     <div className="wrapper">
@@ -18,16 +27,13 @@ const App = () => {
         </div>
         
         <div className='sneakers-flex'>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
-            <SneakersContain></SneakersContain>
+            {arr.map( val => 
+                <SneakersContain 
+                    name={val.name} 
+                    price={val.price} 
+                    imgURL={val.imgURL} 
+                    onClickFavorite={ ()=> console.log('натиснули на закладки')}
+                    onClickPlus={ ()=> console.log('натиснули на плюс')} />)}
         </div>
         
     </section>
