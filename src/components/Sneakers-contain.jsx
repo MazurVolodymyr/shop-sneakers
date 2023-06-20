@@ -1,11 +1,17 @@
+import React from 'react';
 
 const SneakersContain = (props) =>{
-    
+    const [isAdded, setIsAdded] = React.useState(true)
+
+    const onClickPlus = () =>{
+        setIsAdded(!isAdded)
+    }
+
     return(
         <div className='sneakers-contain'>
             <div className='sneakers-body'>
                 <div className='heart' >
-                    <img src="./images/icons/heart.svg" alt="like" onClick={props.onClickFavorite} />
+                    <img src="./images/icons/heart.svg" alt="like"/>
                 </div>
                 <div className='img'>
                     <img src={props.imgURL} alt="" /> 
@@ -18,9 +24,8 @@ const SneakersContain = (props) =>{
                         <p>{props.price} грн</p>
                     </div>
                     <div>
-                        <button className='button' onClick={props.onClickPlus}>
-                            <img src="./images/icons/btn.svg" alt="add to order" />
-                        </button>
+                        <img onClick={onClickPlus} src={ isAdded ? "./images/icons/btn.svg" : "./images/icons/btn-liked.svg"}
+                        alt="add to order"/>
                     </div>
                 </div>
             </div>

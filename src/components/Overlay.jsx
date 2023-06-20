@@ -1,9 +1,9 @@
 const Overlay = (props) => {
     return (
-        <div style={{display:'none'}} className="overlay">
+        <div className="overlay">
             <div className="drawer">
                 <h2>Кошик
-                <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove-h2' />
+                <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove-h2' onClick={props.doCartClose}/>
                 </h2>
 
                 <div className="items">

@@ -167,6 +167,9 @@ code {
       align-items: center;
       justify-content: space-around;
       width: 200px;
+      img{
+        cursor: pointer;
+      }
     }
   }
 
@@ -221,19 +224,9 @@ code {
         display: flex;
         align-items: center;
         justify-content: space-between;
-      }
-      .button{
-        background-color: #fff;
-        border: 1px solid #dad4d4;
-        box-sizing: border-box;
-        border-radius: 8px;
-        height: 32px;
-        width: 32px;
-        display: flex;
-        align-items:center;
-        justify-content: center;
-        cursor: pointer;
-  
+        img{
+          cursor: pointer;
+        }
       }
     }
   }

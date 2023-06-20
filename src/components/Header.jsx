@@ -1,4 +1,5 @@
-const Header = () => {
+const Header = (props) => {
+
     return(
         <header className='header'>
             <div className='header__contain'>
@@ -11,8 +12,8 @@ const Header = () => {
                         <p>Магазин найкращого взуття</p>
                     </div>
                 </div>
-                <div className='header__right'>
-                    <img src="./images/icons/basket.svg" alt="basket" />
+                <div className='header__right' >
+                    <img src="./images/icons/basket.svg" alt="basket" onClick={props.doCartOpen}/>
                     <p>2400 грн</p>
                     <img src="./images/icons/heart.svg" alt="like" />
                     <img src="./images/icons/Union.svg" alt="Your account" />
