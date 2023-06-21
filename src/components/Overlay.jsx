@@ -1,28 +1,21 @@
-const Overlay = (props) => {
+const Overlay = ( {doCartClose, items = [] }) => { //робимо в {} деструктирізацію
     return (
         <div className="overlay">
             <div className="drawer">
                 <h2>Кошик
-                <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove-h2' onClick={props.doCartClose}/>
+                <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove-h2' onClick={doCartClose}/>
                 </h2>
 
                 <div className="items">
-                    <div className="cartItem">
-                        <img src="./images/body/2.svg" alt="" className='cartItem__sneakers'/>
+                {items.map(obj => <div className="cartItem">
+                        <img src={obj.imgURL} alt="" className='cartItem__sneakers'/>
                         <div>
-                            <p>Чоловічі кросівки Nike Air Max 270</p>
-                            <b>7999 грн</b>
+                            <p>{obj.name}</p>
+                            <b>{obj.price}</b>
                         </div>
                         <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove' />
-                    </div>
-                    <div className="cartItem">
-                        <img src="./images/body/2.svg" alt="" className='cartItem__sneakers'/>
-                        <div>
-                            <p>Чоловічі кросівки Nike Air Max 270</p>
-                            <b>7999 грн</b>
-                        </div>
-                        <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove' />
-                    </div>
+                    </div>)}
+
                 </div>
                 <div className='cartTotalBlock'>
                     <ul >

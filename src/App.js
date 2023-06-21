@@ -13,12 +13,17 @@ const arr = [
 ]
 
 const App = () => {
-    const [cartOpen, setCartOpen] = React.useState(false)
+    const [cartOpen, setCartOpenClose] = React.useState(false)
 
+    const [cartItems, setCartItems] = React.useState([])
+
+    const onAddToCart = (obj) =>{
+        setCartItems(prev => [...prev, obj]) //на початку ми маємо пустий масив, далі при кліку в наш масив попадає об'єкт, при наступному кліку ми беремо всі старі дані та додаємо в кінець масива ще один об'єкт
+    } 
   return (
     <div className="wrapper">
-        { cartOpen ? <Overlay doCartClose={()=> setCartOpen(false)}/> : null}
-        <Header  doCartOpen={()=> setCartOpen(true)} ></Header>
+        { cartOpen ? <Overlay doCartClose={()=> setCartOpenClose(false)} items={cartItems} /> : null}
+        <Header  doCartOpen={()=> setCartOpenClose(true)} ></Header>
     <section>
         <div className='search-block'>
             <h1>Всі кросівки</h1>
@@ -29,13 +34,13 @@ const App = () => {
         </div>
         
         <div className='sneakers-flex'>
-            {arr.map( val => 
+            {arr.map( item => 
                 <SneakersContain 
-                    name={val.name} 
-                    price={val.price} 
-                    imgURL={val.imgURL} 
-                    onClickFavorite={ ()=> console.log('натиснули на закладки')}
-                    onClickPlus={ ()=> console.log('натиснули на плюс')} />)}
+                    name={item.name} 
+                    price={item.price} 
+                    imgURL={item.imgURL} 
+                    onFavorite={ ()=> console.log('натиснули на закладки')}
+                    onPlus={ (obj)=> onAddToCart(obj)} />)}
         </div>
         
     </section>
