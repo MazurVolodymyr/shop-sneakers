@@ -1,11 +1,14 @@
-const Overlay = ( {doCartClose, items = [] }) => { //робимо в {} деструктирізацію
+import React from "react"
+
+const Overlay = ( {doCartClose, items = [], onRemove }) => { //робимо в {} деструктирізацію
+
     return (
         <div className="overlay">
             <div className="drawer">
                 <h2>Кошик
                 <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove-h2' onClick={doCartClose}/>
                 </h2>
-
+            
                 <div className="items">
                 {items.map(obj => <div className="cartItem">
                         <img src={obj.imgURL} alt="" className='cartItem__sneakers'/>
@@ -13,10 +16,10 @@ const Overlay = ( {doCartClose, items = [] }) => { //робимо в {} дест
                             <p>{obj.name}</p>
                             <b>{obj.price}</b>
                         </div>
-                        <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove' />
+                        <img src="./images/icons/btn-remove.svg" alt="remove" className='btn-remove' onClick={()=> onRemove(obj.id)}/>
                     </div>)}
-
                 </div>
+
                 <div className='cartTotalBlock'>
                     <ul >
                         <li >
